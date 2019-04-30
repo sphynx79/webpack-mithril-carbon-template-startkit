@@ -1,0 +1,96 @@
+// src/init/index.scss
+
+//---------------------------------------
+// Carbon Components
+//---------------------------------------
+
+// Per la migrazione a carbon system 10
+// vedere https://github.com/IBM/carbon-elements/tree/master/docs/migration
+
+$prefix: 'bx' !default;
+$css--font-face: true;
+$css--helpers: true;
+$css--body: true;
+$css--use-layer: true;
+$css--reset: true;
+$css--typography: true;
+$css--plex: true;
+// Abilito le feature experiemental
+$feature-flags: (
+  ui-shell: true,
+  components-x: true,
+  grid-columns-16: true,
+);
+
+// Faccio il reset dei css
+@import "@carbon/type/scss/_reset.scss";
+@include carbon--type-reset();
+
+// Setto i font
+$font-prefix: '~@ibm/plex';
+@import '@ibm/plex/scss/sans/_index.scss';
+@import '@ibm/plex/scss/mono/_index.scss';
+$font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+
+@import '@carbon/type/scss/classes';
+@include carbon--type-classes();
+
+//---------------------------------------
+// Set Theme
+// See https://github.com/IBM/carbon-elements/blob/master/packages/themes/README.md
+//---------------------------------------
+
+// Set the Dark Theme
+$carbon--theme: $carbon--theme--g90;
+// Use the gray 100 theme
+@include carbon--theme();
+
+
+//---------------------------------------
+// Import all component
+//---------------------------------------
+// @import 'carbon-components/scss/globals/scss/styles';
+
+
+//---------------------------------------
+// Import Specific component
+//---------------------------------------
+@import 'carbon-components/scss/components/ui-shell/ui-shell';
+@import 'carbon-components/scss/components/overflow-menu/overflow-menu';
+@import 'carbon-components/scss/components/search/search';
+
+
+html {
+  // font-size: calc(0.4em + 1vmin);
+  height:100%;
+}
+
+body {
+  // background: $ui-background;
+  font-family: $font-family;
+  // overflow: hidden;
+  // color: $text-01;
+  // height:100%;
+  // display: flex;
+  // flex: 1;
+  // flex-direction: column;
+  // display: flex;
+  // justify-content: center;
+  font-display: auto;
+}
+
+
+// ::-webkit-scrollbar {
+//   width: 12px;
+// }
+
+// ::-webkit-scrollbar-thumb {
+//   border-radius: 10px;
+//   background: rgba(92, 166, 245, 0.819608);
+//   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+// }
+
+// ::-webkit-scrollbar-track-piece {
+//   height: 20px;
+// }
+
